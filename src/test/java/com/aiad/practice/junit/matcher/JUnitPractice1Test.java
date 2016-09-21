@@ -8,6 +8,8 @@ import static org.hamcrest.Matchers.sameInstance;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.junit.Assert.assertThat;
 
+import java.io.File;
+
 import junit.framework.TestCase;
 
 /**
@@ -16,10 +18,21 @@ import junit.framework.TestCase;
  *
  */
 public class JUnitPractice1Test extends TestCase{
-	
+	/**
+	 * JUnit3: assertTrue()
+	 */
 	public void testTrue(){
 		assertTrue(false);
 	}
+	/**
+	 * JUnit3: fail()
+	 */
+	public void testFail(){
+		fail();
+	}
+	/**
+	 * JUnit3: testEquals()
+	 */
 	public void testEquals(){
 		assertEquals(10,12);
 	}	

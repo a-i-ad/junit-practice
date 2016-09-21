@@ -11,9 +11,10 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import junit.framework.TestCase;
 
-
-
-
+/**
+ * mock()とwhen()とverify()を用いたテスト.
+ * @author kishibashi
+ */
 public class JUnitPractice6 extends TestCase {
 
 	/**

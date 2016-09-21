@@ -22,8 +22,10 @@ import org.mockito.internal.util.reflection.Whitebox;
 import junit.framework.TestCase;
 
 
-
-
+/**
+ * ArgumentCaptorを使ってみる。
+ * @author kishibashi
+ */
 public class JUnitPractice9Test extends TestCase {
 
 	@Mock SumService service;

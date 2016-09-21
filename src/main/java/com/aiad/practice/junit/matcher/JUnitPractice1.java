@@ -17,10 +17,21 @@ import junit.framework.TestCase;
  *
  */
 public class JUnitPractice1 extends TestCase{
-	
+	/**
+	 * JUnit3: assertTrue()
+	 */
 	public void testTrue(){
 		
 	}
+	/**
+	 * JUnit3: fail()
+	 */
+	public void testFail(){
+		
+	}
+	/**
+	 * JUnit3: assertEquals()
+	 */
 	public void testEquals(){
 		
 	}	

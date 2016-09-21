@@ -18,9 +18,10 @@ import org.mockito.internal.util.reflection.Whitebox;
 
 import junit.framework.TestCase;
 
-
-
-
+/**
+ * @Mockと@InjectMocksを用いたテスト
+ * @author kishibashi
+ */
 public class JUnitPractice7Test extends TestCase {
 
 	/**
