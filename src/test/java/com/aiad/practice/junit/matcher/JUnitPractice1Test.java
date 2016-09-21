@@ -1,4 +1,4 @@
-package com.aiad.matcher;
+package com.aiad.practice.junit.matcher;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.not;

@@ -1,4 +1,4 @@
-package com.aiad.matcher;
+package com.aiad.practice.junit.matcher;
 
 import java.util.Arrays;
 import java.util.Collections;

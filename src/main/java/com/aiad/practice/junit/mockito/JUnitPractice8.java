@@ -1,4 +1,4 @@
-package com.aiad.mockito;
+package com.aiad.practice.junit.mockito;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -14,6 +14,7 @@ import static org.mockito.Mockito.when;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.mockito.internal.util.reflection.Whitebox;
 
 import junit.framework.TestCase;
@@ -21,46 +22,26 @@ import junit.framework.TestCase;
 
 
 
-public class JUnitPractice7Test extends TestCase {
+public class JUnitPractice8 extends TestCase {
 
 	/**
 	 * 1. SumServiecのモックを定義する。
+	 *    actionはspy化する。
 	 */
 	@Mock SumService service;
-	@InjectMocks SumAction action;
+	@InjectMocks @Spy SumAction action;
 
-	/**
-	 * 2. MockitoAnnotationsを使ってMockを初期化する。
-	 */
 	public void setUp(){
 		MockitoAnnotations.initMocks(this);
-	}
-	/**
-	 * 3. actionとserviceが初期化されていることを確認する。
-	 */
-	public void testInit(){
-		assertThat( action, notNullValue());
-		assertThat( service, notNullValue() );
-		assertThat( Whitebox.getInternalState(action, "sumService"), notNullValue());
-	}
-	/**
-	 * 4. serviceの動作(1+1)を登録する。
-	 * 5. actionを実行する。
-	 * 6. assertする
-	 * 7. serviceをverifyする
-	 */
-	public void testSum(){
 		when(service.sum(1,1)).thenReturn(2);
 		int sum = action.sum(1,1);
-		assertThat(sum, equalTo(2));
-		verify( service, times(1)).sum(1,1);
 	}
 	/**
-	 * 8. actionのverifyができない事を確認する。
-	 *    ただのオブジェクトだからね。
+	 * 2. actionもverifyできる事を確認する。
 	 */
 	public void testVerify(){
-		verify( action, times(1)).sum(1,1);
+
+		
 	}
 	
 	

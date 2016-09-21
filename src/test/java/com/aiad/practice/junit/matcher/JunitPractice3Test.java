@@ -1,4 +1,4 @@
-package com.aiad.matcher;
+package com.aiad.practice.junit.matcher;
 
 import junit.framework.TestCase;
 

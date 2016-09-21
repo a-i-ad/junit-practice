@@ -1,4 +1,4 @@
-package com.aiad.mockito;
+package com.aiad.practice.junit.mockito;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;

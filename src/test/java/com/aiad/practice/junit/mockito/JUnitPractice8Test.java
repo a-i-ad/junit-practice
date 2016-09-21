@@ -1,4 +1,4 @@
-package com.aiad.mockito;
+package com.aiad.practice.junit.mockito;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -22,7 +22,7 @@ import junit.framework.TestCase;
 
 
 
-public class JUnitPractice8 extends TestCase {
+public class JUnitPractice8Test extends TestCase {
 
 	/**
 	 * 1. SumServiecのモックを定義する。

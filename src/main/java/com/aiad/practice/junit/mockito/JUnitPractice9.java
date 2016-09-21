@@ -1,4 +1,4 @@
-package com.aiad.mockito;
+package com.aiad.practice.junit.mockito;
 
 import static org.mockito.Matchers.contains;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -24,7 +24,7 @@ import junit.framework.TestCase;
 
 
 
-public class JUnitPractice9Test extends TestCase {
+public class JUnitPractice9 extends TestCase {
 
 	@Mock SumService service;
 	@InjectMocks SumAction action;
@@ -32,7 +32,6 @@ public class JUnitPractice9Test extends TestCase {
 	/**
 	 * 1. Integer用のArgumentCaptorを用意。
 	 */
-	ArgumentCaptor<Integer> intCaptor = ArgumentCaptor.forClass(Integer.class);
 
 	public void setUp(){
 		MockitoAnnotations.initMocks(this);
@@ -44,9 +43,6 @@ public class JUnitPractice9Test extends TestCase {
 	 */
 	public void testSum(){
 		
-		when(service.sum( intCaptor.capture() ,intCaptor.capture())).thenReturn(2);
-		int sum = action.sum(5,6);
-		assertThat( intCaptor.getAllValues(), Matchers.contains(5,6));
 	}
 
 	public static class SumAction{

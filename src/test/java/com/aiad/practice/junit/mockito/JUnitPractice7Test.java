@@ -1,6 +1,5 @@
-package com.aiad.mockito;
+package com.aiad.practice.junit.mockito;
 
-import static org.mockito.Matchers.contains;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -12,8 +11,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.hamcrest.Matchers;
-import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -24,26 +21,49 @@ import junit.framework.TestCase;
 
 
 
-public class JUnitPractice9 extends TestCase {
+public class JUnitPractice7Test extends TestCase {
 
+	/**
+	 * 1. SumServiecのモックを定義する。
+	 */
 	@Mock SumService service;
 	@InjectMocks SumAction action;
 
 	/**
-	 * 1. Integer用のArgumentCaptorを用意。
+	 * 2. MockitoAnnotationsを使ってMockを初期化する。
 	 */
-
 	public void setUp(){
 		MockitoAnnotations.initMocks(this);
 	}
 	/**
-	 * 2. 何かと何かを足すと2を返すよう設定する。「何か」と「何か」をArgumentCaptorでキャプチャする。
-	 * 3. 適当な入力でactionを実行する。
-	 * 4. assert文で、実行に用いた引数がキャプチャされている事を確認する。
+	 * 3. actionとserviceが初期化されていることを確認する。
+	 */
+	public void testInit(){
+		assertThat( action, notNullValue());
+		assertThat( service, notNullValue() );
+		assertThat( Whitebox.getInternalState(action, "sumService"), notNullValue());
+	}
+	/**
+	 * 4. serviceの動作(1+1)を登録する。
+	 * 5. actionを実行する。
+	 * 6. assertする
+	 * 7. serviceをverifyする
 	 */
 	public void testSum(){
-		
+		when(service.sum(1,1)).thenReturn(2);
+		int sum = action.sum(1,1);
+		assertThat(sum, equalTo(2));
+		verify( service, times(1)).sum(1,1);
 	}
+	/**
+	 * 8. actionのverifyができない事を確認する。
+	 *    ただのオブジェクトだからね。
+	 */
+	public void testVerify(){
+		verify( action, times(1)).sum(1,1);
+	}
+	
+	
 
 	public static class SumAction{
 		private SumService sumService;

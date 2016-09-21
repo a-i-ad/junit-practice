@@ -16,6 +16,6 @@ JUnit勉強会用のプロジェクト
 
 com.aiad.matcher.JUnitPractice1〜5まで、
 
-com.aiad.matcher.JUnitPractice6〜9まで、
+com.aiad.mockito.JUnitPractice6〜9まで、
 
 順に見てほしい。
